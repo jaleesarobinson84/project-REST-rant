@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
         city: 'Raleigh',
         state: 'NC',
         cuisines: 'American',
-        pic: 'http://placeskitten.com/250/250'
+        pic: 'http://placekitten.com/250/250'
     }, {
         name: 'Happy Coffee',
         city: 'Chicago',
