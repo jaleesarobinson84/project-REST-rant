@@ -1,4 +1,40 @@
+body {
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+main {
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: whitesmoke;
+}
+
 h1 {
     text-align: center;
     color: teal;
+}
+
+nav {
+    background-color: burlywood;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 25px;
+}
+
+nav a { 
+    color: rgb(66, 15, 15);
+    font-size: 1.5em;
+}
+
+nav a:hover {
+    color: whitesmoke;
+    text-decoration: none;
 }
