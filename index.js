@@ -1,22 +1,26 @@
 // Modules and Global
-require('dotenv').config()
 const express = require('express')
-const app = express()
 
-// Express Settings
+// Configuration
+require('dotenv').config()
+const app = express()
+app.use(express.urlencoded({extended: true }))
+
+// Express Settings/MIDDLEWARE
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 
-// controllers & routes
-app.use(express.urlencoded({extended: true }))
+// controllers
 app.use('/places', require('./controllers/places'))
 
+// ROUTES
 app.get('/', (req, res) => {
     res.render('home')
 })
 
+// 404 Route
 app.get('*', (req, res) => {
     // {res.status(404).send('<h1>404 Page</h1>')
     res.render('error404')
