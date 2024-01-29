@@ -31,7 +31,7 @@ router.delete('/:id', (req, res) => {
 })
 
 // EDIT
-router.get('/:id', (req, res) => {
+router.get('/:id/edit', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
     res.render('error404')
@@ -51,19 +51,14 @@ router.get('/', (req, res) => {
         PhotoCredit: 'Favour Otunji',
         credit: 'Photo by <a href="https://unsplash.com/@kodeblacc?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Favour Otunji</a> on <a href="https://unsplash.com/photos/brown-dinette-set-lot-dD7xFyDzES4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
   
-        
-        
-  
-        
-  
-    }, {
+        }, {
         name: 'Happy Coffee',
         city: 'Chicago',
         state: 'IL',
         cuisines: 'Coffee, Bakery',
         pic: '/images/coffee-shop.jpg',
         photoCredit: 'Sincerly Media',
-        credit: 'Photo by <a href="https://unsplash.com/@sincerelymedia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sincerely Media</a> on <a href="https://unsplash.com/photos/man-standing-near-the-kitchen-counter-VNsdEl1gORk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
+        credit:'Photo by <a href="https://unsplash.com/@sincerelymedia?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sincerely Media</a> on <a href="https://unsplash.com/photos/man-standing-near-the-kitchen-counter-VNsdEl1gORk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 
     }]
     res.render('places/index', {places}) 
