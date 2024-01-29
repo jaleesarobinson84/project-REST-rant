@@ -2,29 +2,21 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
-    const place = data.place;
     return (
         <Def>
           <main>
-            <h1>{place.name}</h1>
-            
-            {/* Displaying city and state */}
-            <p>City:Denver</p>
-            <p>State:CO</p>
-    
-            {/* Displaying cuisines as a list */}
-            <div>
-              <h4>Cuisines:</h4>
-              <ul>
-                {place.cuisines.map((cuisine, index) => (
-                  <li key={index}>{cuisine}</li>
-                ))}
-              </ul>
-            </div>
-    
-            {/* Displaying the image */}
-            <img src='/images/bbq-plate.jpg' alt='BBQ' />
-
+            <h1>{data.place.name}</h1>
+            <img src={data.place.pic}
+          alt={data.place.credit}/>
+              <h4>{data.place.city},
+              {data.place.state}</h4>
+              <h3>{data.places.cuisines}</h3>
+              <div>
+                <h2>Rating</h2>
+                <p>Not Rated</p>
+                <h2>Comments</h2>
+                <p>No Comments Yet!!!</p>
+              </div>
             <a href={`/places/${data.id}/edit`} className="btn btn-warning">
                 Edit 
             </a>
@@ -38,4 +30,4 @@ function show (data) {
       );
     }
     
-    module.exports = Show;
+    module.exports = show
