@@ -69,7 +69,7 @@ router.post('/', (req, res) => {
   console.log(req.body)
   if (!req.body.pic) {
     // Default image if one is not provided
-    req.body.pic = '/images/yard-house-tables.jpg'
+    req.body.pic = 'http://placekitten.com/400/400'
   }
   if (!req.body.city) {
     req.body.city = 'Anytown'
@@ -94,7 +94,7 @@ router.put('/:id', (req, res) => {
       // Dig into req.body and make sure data is valid
       if (!req.body.pic) {
           // Default image if one is not provided
-          req.body.pic = '/images/coffee-shop.jpg'
+          req.body.pic = 'http://placekitten.com/400/400'
       }
       if (!req.body.city) {
           req.body.city = 'Anytown'
