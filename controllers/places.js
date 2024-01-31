@@ -5,7 +5,7 @@ const places = require('../models/places')
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
-      res.render('places/index', { places })
+      res.render('places/index', {places})
     })
     .catch(err => {
       console.log(err) 
@@ -31,10 +31,21 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send('GET /places/:id stub')
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('places/show', {place})
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.send('error404')
+  })
+  
 })
 
 router.put('/:id', (req, res) => {
+  db.Place.findById(req.params.id)
+  .then()
+  .catch()
   res.send('PUT /places/:id stub')
 })
 
