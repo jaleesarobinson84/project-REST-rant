@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+// schema
 const placeSchema = new mongoose.Schema({
     name: {type: String, required: true},
     pic: String,
@@ -8,5 +9,10 @@ const placeSchema = new mongoose.Schema({
     state: {type: String, default: 'USA'},
     founded: Number
 })
+
+placeSchema.methods.showEstablished = function() {
+    return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
+}
+  
 
 module.exports = mongoose.model('Place', placeSchema)
