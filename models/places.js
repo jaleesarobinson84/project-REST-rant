@@ -3,11 +3,15 @@ const mongoose = require('mongoose')
 // schema
 const placeSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    pic: String,
+    pic: {type: String, default: ['yard-house-tables.jpg', 'coffee-shop-jpg']},
     cuisines: {type: String, required: true},
     city: {type: String, default: 'Anytown'},
     state: {type: String, default: 'USA'},
-    founded: Number
+    founded: {
+        type: Number,
+        min: [1673, 'Definitely in their Seasoned Era!!'],
+        max: [new Date().getFullYear(), 'This year is in the future, Cheers!!!']
+    }
 })
 
 placeSchema.methods.showEstablished = function() {
