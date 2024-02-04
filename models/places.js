@@ -5,8 +5,8 @@ const placeSchema = new mongoose.Schema({
     name: {type: String, required: true},
     pic: {type: String, default: 'coffee-shop-jpg'},
     cuisines: {type: String, required: true},
-    city: {type: String, default: 'Anytown'},
-    state: {type: String, default: 'USA'},
+    city: {type: String, default: 'Chicago'},
+    state: {type: String, default: 'IL'},
     founded: {
         type: Number,
         min: [1673, 'Definitely in their Seasoned Era!!'],

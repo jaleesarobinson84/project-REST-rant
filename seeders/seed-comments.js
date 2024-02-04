@@ -3,7 +3,7 @@ const db = require('../models')
 // To use await, we need an async function.
 async function seed() {
     // Get the place,
-    let place = await db.Place.findOne({ name: 'Yard House' })
+    let place = await db.Place.findOne({ name: 'Happy Coffee' })
 
     // Create a fake sample comment
     let comment = await db.Comment.create({
