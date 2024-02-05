@@ -14,9 +14,9 @@ function show (data) {
           <h2 className="rant">{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}/</h2>
           <h4>{c.content}</h4>
           <h3>
-            <strong>- {c.author}</strong>
+            <strong>{c.author}</strong>
           </h3>
-          <h4>Rating: {c.stars}</h4>
+          <h4>Rating:{c.stars}</h4>
         </div>
       )
     })
@@ -48,7 +48,7 @@ function show (data) {
                 Serving {data.place.cuisines}
               </h4>
               <h2>Comments</h2>
-              {'commments'}
+              (comments)
             <a href={`/places/${data.id}/edit`} className="btn btn-warning">
                 Edit 
             </a>

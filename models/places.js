@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 // schema
 const placeSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    pic: {type: String, default: 'coffee-shop-jpg'},
+    pic: {type: String, default: ['/images/coffee-shop.jpg']},
     cuisines: {type: String, required: true},
     city: {type: String, default: 'Chicago'},
     state: {type: String, default: 'IL'},
@@ -12,7 +12,7 @@ const placeSchema = new mongoose.Schema({
         min: [1673, 'Definitely in their Seasoned Era!!'],
         max: [new Date().getFullYear(), 'This year is in the future, Cheers!!!']
     },
-    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 })
 
 placeSchema.methods.showEstablished = function() {
