@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const db = require('../models')
 
+// places stub
 router.get('/', (req, res) => {
     db.Place.find()
     .then((places) => {
@@ -13,33 +14,19 @@ router.get('/', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  res.render('GET/places stub')
+  res.render('/places/new')
 })
 
 router.post('/', (req, res) => {
   db.Place.create(req.body)
   .then(() => {
-    res.redirect('/places')
+      res.redirect('/places')
   })
   .catch(err => {
-    if (err && err.name == 'ValidationError') {
-      let message = 'Validation Error: '
-      for (var field in err.errors) {
-        message += `${field} was ${err.errors[field].value}.`
-        message += `${err.errors[field].message}`
-      }
-      console.log('Validation error message', message)
-      // ToDO: Find all validation errors
-      res.render('places/new', {message})
-      // ToDO: Generate error message(s)
-    }
-    else{
-    console.log('err', err)
-    res.render('error404')
-    }
+      console.log('err', err)
+      res.render('error404')
   })
 })
-
 
 
 // loads Show Page
@@ -57,16 +44,37 @@ router.get('/:id', (req, res) => {
   
 })
 
+// edit place - submit button should send here
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+      res.render('error404')
+  }
+  else if (!places[id]) {
+      res.render('error404')
+  }
+  else {
+      res.redirect(`/places/${id}`)
+  }
 })
+
 
 router.delete('/:id', (req, res) => {
   res.send('DELETE /places/:id stub')
 })
 
+// edit form
 router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+      res.render('error404')
+  }
+  else if (!places[id]) {
+      res.render('error404')
+  }
+  else {
+    res.render('places/edit', {place: places[id]})
+  }
 })
 
 // comment
