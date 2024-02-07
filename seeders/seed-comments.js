@@ -13,8 +13,6 @@ async function seed() {
         content: 'Wow, simply amazing! Highly recommended!'
     })
     // Add that comment to the place's comment array
-    console.log(comment)
-    
     place.comments.push(comment._id)
     
     console.log(place)
