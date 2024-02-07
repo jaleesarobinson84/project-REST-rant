@@ -28,7 +28,11 @@ function edit_form (data) {
                     </div>
                     <div className="form-group col-sm-4">
                         <label htmlFor="founded">Founding Year</label>
-                        <input className="form-control" id="founded" name="founded" value={data.place.founded} />
+                        <input className="form-control" 
+                        id="founded" 
+                        name="founded" 
+                        value={data.place.founded} 
+                        />
                     </div>
                 </div>
                 <div className="form-group">
